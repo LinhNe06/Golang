@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Orders</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <section class="card">
+        <a class="back-link" href="index.html">← Back to menu</a>
+        <h1>View Orders</h1>
+        <p class="subtitle">Xem toàn bộ đơn hàng hoặc truy vấn chi tiết theo ID.</p>
+
+        <form id="readForm">
+          <label for="order_id">Order ID (optional)</label>
+          <input type="text" id="order_id" placeholder="Nhập ID để lấy 1 order" />
+
+          <div class="actions">
+            <button type="button" onclick="getOrders()">Refresh All Orders</button>
+            <button type="submit">Get Order by ID</button>
+          </div>
+        </form>
+
+        <pre id="result"></pre>
+      </section>
+    </main>
+
+    <script src="api.js"></script>
+
+    <script>
+      document.getElementById("readForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const id = document.getElementById("order_id").value;
+        getOrder(id);
+      });
+    </script>
+  </body>
+</html>

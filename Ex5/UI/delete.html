@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xóa đơn hàng</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <main class="container">
+        <section class="card">
+            <a class="back-link" href="index.html">← Quay lại menu</a>
+
+            <h1>Xóa đơn hàng</h1>
+            <p class="subtitle">Nhập ID để xóa đơn hàng.</p>
+
+            <form id="deleteForm">
+                <label for="order_id">Mã đơn hàng</label>
+
+                <input 
+                    type="text" 
+                    id="order_id" 
+                    placeholder="Nhập ID đơn hàng"
+                    required
+                />
+
+                <div class="actions">
+                    <button class="danger" type="submit">
+                        Xóa đơn hàng
+                    </button>
+                </div>
+            </form>
+
+            <pre id="result"></pre>
+        </section>
+    </main>
+
+    <script src="api.js"></script>
+
+    <script>
+        document.getElementById("deleteForm")
+        .addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const id = document.getElementById("order_id").value;
+
+            deleteOrder(id);
+        });
+    </script>
+</body>
+</html>
